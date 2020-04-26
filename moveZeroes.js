@@ -1,4 +1,4 @@
-ar moveZeroes = function(nums) {
+var moveZeroes = function(nums) {
     let count = 0;
     let len = nums.length;
     for (let i = 0; i < len; i++) 
@@ -12,4 +12,4 @@ ar moveZeroes = function(nums) {
     for (let j = count; j < len; j++) {
         nums[j] = 0;
     }
-};
+}

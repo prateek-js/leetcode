@@ -19,6 +19,6 @@ function verifyStr(word, dict, start, memo) {
     return memo[start] = false;
 }
 
-Input: s = "leetcode", wordDict = ["leet", "code"]
-Output: true
-Explanation: Return true because "leetcode" can be segmented as "leet code".
+// Input: s = "leetcode", wordDict = ["leet", "code"]
+// Output: true
+// Explanation: Return true because "leetcode" can be segmented as "leet code".
