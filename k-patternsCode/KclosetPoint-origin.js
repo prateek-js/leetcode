@@ -12,6 +12,11 @@ The distance between (-2, 2) and the origin is sqrt(8).
 Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
 We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
 
+// 1 liner
+const kClosest = (points, K) => {
+    return points.sort((a, b) => Math.sqrt(Math.pow(a[0], 2) + Math.pow(a[1], 2)) - Math.sqrt(Math.pow(b[0], 2) + Math.pow(b[1], 2))).slice(0, K);
+};
+
 
 var kClosest = function(points, K) {
     
