@@ -1,0 +1,37 @@
+var maxScore = function(s) {
+    let leftscore = 0;
+    let rightscore = 0;
+    let leftArray = [];
+    let rightArray = [];
+    let totalScore = [];
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] === "1") { rightscore ++}
+    }
+    
+    
+    var iterateArray = function(s) {
+        if (s.length === 1) return;
+        leftArray.push(s[0]);
+        if(s[0] === "0") {
+            leftscore++;
+        } else {
+            rightscore--;
+        }
+        totalScore.push(leftscore+rightscore);
+        iterateArray(s.slice(1,s.length));
+    }
+    iterateArray(s);
+    totalScore.sort(function(a,b){ return b-a});
+    return totalScore[0];
+};
+
+
+Input: s = "011101"
+Output: 5 
+Explanation: 
+All possible ways of splitting s into two non-empty substrings are:
+left = "0" and right = "11101", score = 1 + 4 = 5 
+left = "01" and right = "1101", score = 1 + 3 = 4 
+left = "011" and right = "101", score = 1 + 2 = 3 
+left = "0111" and right = "01", score = 1 + 1 = 2 
+left = "01110" and right = "1", score = 2 + 1 = 3
