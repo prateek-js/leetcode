@@ -1,21 +1,13 @@
 var lengthOfLongestSubstring = function(s) {
-    if (!s) return 0;
-    if (s.length < 2) return s.length;
-    let ls = s[0]; // longest string
-    let cs = s[0]; // current string
-    for (var i = 1; i < s.length; i++) {
-        var index = cs.indexOf(s[i]); // get index of current character in current string
-        if (index > -1) { // found the character in current string
-            if (cs.length > ls.length) {
-                ls = cs; // update longest string
+    let hashMap = {}, start = 0, max = 0;
+    for (let i=0;i<s.length;i++) {
+        if (hashMap[s[i]]!=null) {
+            if (hashMap[s[i]] + 1 > start) { // if the character is after start
+                start = hashMap[s[i]] + 1; // update start position
             }
-            cs = cs.substring(index + 1,cs.length) + s[i]; // remove the first part of the string which contains repeated character
-        } else {
-            cs = cs + s[i]; 
-        }        
+        }
+        hashMap[s[i]] = i; // update char position
+        max = (i-start+1)>max?(i-start+1):max; // update max if neccessary
     }
-    if (cs.length > ls.length) {
-        ls = cs;                
-    }
-    return ls.length;
+    return max;
 };
